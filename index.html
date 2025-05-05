@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/1163/1163661.png">
+</head>
+<body class="bg-gray-50 font-[Inter]">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-cloud-sun text-3xl"></i>
+                    <div class="text-2xl font-bold">Weather Dashboard</div>
+                </div>
+                <ul class="hidden md:flex space-x-6">
+                    <li><a href="#" class="hover:text-blue-200 font-medium">Home</a></li>
+                    <li><a href="#" class="hover:text-blue-200 font-medium">Forecast</a></li>
+                    <li><a href="#" class="hover:text-blue-200 font-medium">Maps</a></li>
+                    <li><a href="#" class="hover:text-blue-200 font-medium">About</a></li>
+                </ul>
+                <button class="md:hidden">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- Hero Section -->
+        <div class="container mx-auto px-4 py-12">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Real-Time Weather Updates</h1>
+                <p class="text-xl text-blue-100">Stay informed with accurate weather data</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 -mt-8">
+        <!-- Error Alert -->
+        <div id="error-alert" class="hidden bg-red-500 text-white p-4 rounded-lg mb-6 shadow-lg"></div>
+
+        <!-- Current Weather -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="text-center md:text-left">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">Current Weather</h2>
+                    <p id="location" class="text-xl text-gray-600">Loading location...</p>
+                    <p id="timestamp" class="text-sm text-gray-500 mt-2">Last updated: --</p>
+                </div>
+                <div class="flex justify-center md:justify-end items-center">
+                    <button id="refresh-btn" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg flex items-center shadow-md transition duration-200">
+                        <i class="fas fa-sync-alt mr-2"></i> Refresh
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Weather Data Grid -->
+        <div id="weather-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Weather cards will be dynamically inserted here -->
+        </div>
+
+        <!-- Additional Weather Information -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Wind Information -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-wind text-blue-600 mr-2"></i>
+                    Wind Details
+                </h3>
+                <div id="wind-details" class="space-y-3">
+                    <!-- Wind details will be dynamically inserted here -->
+                </div>
+            </div>
+
+            <!-- Precipitation Information -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-cloud-rain text-blue-600 mr-2"></i>
+                    Precipitation
+                </h3>
+                <div id="precipitation-details" class="space-y-3">
+                    <!-- Precipitation details will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-12">
+        <div class="container mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Weather Dashboard</h3>
+                    <p class="text-gray-400">Real-time weather data powered by WeatherLink</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Forecast</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Maps</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">About</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400"><i class="fas fa-envelope mr-2"></i> info@weather.com</li>
+                        <li class="text-gray-400"><i class="fas fa-phone mr-2"></i> +1 234 567 890</li>
+                        <li class="text-gray-400"><i class="fas fa-map-marker-alt mr-2"></i> Weather Station Location</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2023 Weather Dashboard. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
